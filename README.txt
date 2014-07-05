@@ -64,7 +64,7 @@ particular world), prepend a minus sign (-) to the line.  For example:
 
    -skin_other_texture_file_name.png
 
-Would remove the "skin_other_texture_file_name.png" skin no matter where it was
+would remove the "skin_other_texture_file_name.png" skin no matter where it was
 specified or what name it was given.
 
 Mod Details
