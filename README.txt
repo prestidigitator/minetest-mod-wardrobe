@@ -1,7 +1,7 @@
 Wardrobe Minetest Mod
 =====================
 
-This mod provides a very simple way to change the skin on the default charcater
+This mod provides a very simple way to change the skin on the default character
 mesh.  Unlike other skin-changing mods out there, it does not attempt to change
 the character mesh, does not provide for the old 2D billboard-type character
 appearance, and does not depend on any kind of inventory extension mods.  It
