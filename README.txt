@@ -72,7 +72,7 @@ Mod Details
 
 Required Minetest Version: >=0.4.9 (not tested in earlier versions)
 
-Dependencies: default, farming, wool (all included in minetest_game)
+Dependencies: default, wool (both included in minetest_game)
 
 Recipies:
 
@@ -103,3 +103,11 @@ Version 1.0
 
 * Released 2014-07-05
 * First working version
+
+Version 1.1
+
+* Released 2015-04-24
+* Removed farming as a dependency; wool is from wool.
+* Auto-detection of player mesh name (thank you indriApollo).
+* Removed warning caused by access of uninitialized global variale (even though
+  it was just a check for nil).
