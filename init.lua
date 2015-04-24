@@ -25,7 +25,7 @@ function wardrobe.setPlayerSkin(player)
       {
          visual = "mesh",
          visual_size = { x = 1, y = 1 },
-         mesh = "character.x",
+         mesh = "character.b3d",
          textures = { skin }
       });
 end
