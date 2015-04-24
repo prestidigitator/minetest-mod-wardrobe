@@ -1,5 +1,3 @@
-wardrobe = wardrobe or {};
-
 local MOD_NAME = minetest.get_current_modname();
 local MOD_PATH = minetest.get_modpath(MOD_NAME);
 local WORLD_PATH = minetest.get_worldpath();
@@ -7,12 +5,38 @@ local WORLD_PATH = minetest.get_worldpath();
 if MOD_NAME ~= "wardrobe" then
    error("mod directory must be named 'wardrobe'");
 end
+wardrobe = {};
 
 dofile(MOD_PATH.."/storage.lua");
 dofile(MOD_PATH.."/wardrobe.lua");
 
 wardrobe.storage.loadSkins();
 wardrobe.storage.loadPlayerSkins();
+
+local playerMesh = "character.b3d";
+
+-- autodetect version of player mesh used by default
+do
+   if default and default.registered_player_models then
+      local haveCharName = false;  -- 'character.*' has priority
+      local name = nil;
+      local nNames = 0;
+
+      for k in pairs(default.registered_player_models) do
+         if string.find(k, "^character\\.[^\\.]+$") then
+            if haveCharName then nNames = 2; break; end;
+            name = k;
+            nNames = 1;
+            haveCharName = true;
+         elseif not haveCharName then
+            name = k;
+            nNames = nNames + 1;
+         end;
+      end;
+
+      if nNames == 1 then playerMesh = name; end;
+   end;
+end;
 
 function wardrobe.setPlayerSkin(player)
    local playerName = player:get_player_name();
@@ -25,7 +49,7 @@ function wardrobe.setPlayerSkin(player)
       {
          visual = "mesh",
          visual_size = { x = 1, y = 1 },
-         mesh = "character.b3d",
+         mesh = playerMesh,
          textures = { skin }
       });
 end
