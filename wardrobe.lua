@@ -24,10 +24,10 @@ local function showForm(player, page)
    end
    fs = fs.."label[2,9;Page "..page.."/"..nPages.."]";
    if page > 1 then
-      fs = fs.."button_exit[0,9;1,1;n:p"..(page-1)..";prev]";
+      fs = fs.."button[0,9;1,1;n:p"..(page-1)..";prev]";
    end
    if page < nPages then
-      fs = fs.."button_exit[4,9;1,1;n:p"..(page+1)..";next]";
+      fs = fs.."button[4,9;1,1;n:p"..(page+1)..";next]";
    end
 
    minetest.show_formspec(playerName, FORM_NAME, fs);
